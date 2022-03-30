@@ -13,12 +13,12 @@ import account from '../../_mocks_/account';
 
 const MENU_OPTIONS = [
   {
-    label: 'Profile',
+    label: 'Perfil',
     icon: 'eva:person-fill',
-    linkTo: '#'
+    linkTo: '/perfil'
   },
   {
-    label: 'Settings',
+    label: 'Configurações',
     icon: 'eva:settings-2-fill',
     linkTo: '#'
   }

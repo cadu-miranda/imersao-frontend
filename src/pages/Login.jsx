@@ -47,7 +47,7 @@ export default function Login() {
           underline="none"
           variant="subtitle2"
           component={RouterLink}
-          to="/register"
+          to="/cadastro"
           color="#7edc54"
         >
           Cadastre-se
@@ -80,7 +80,7 @@ export default function Login() {
             <Link
               variant="subtitle2"
               component={RouterLink}
-              to="register"
+              to="cadastro"
               underline="hover"
               color="#7edc54"
             >

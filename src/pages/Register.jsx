@@ -42,15 +42,15 @@ export default function Register() {
   return (
     <RootStyle title="Oxil | Cadastro">
       <AuthLayout>
-        Already have an account? &nbsp;
+        Já possui uma conta? &nbsp;
         <Link underline="none" variant="subtitle2" component={RouterLink} to="/login">
-          Login
+          Faça o Login
         </Link>
       </AuthLayout>
 
       <SectionStyle sx={{ display: { xs: 'none', md: 'flex' } }}>
         <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-          Manage the job more effectively with Minimal
+          Gerencie seus resíduos de uma maneira facilitada
         </Typography>
         <img alt="register" src="/static/illustrations/illustration_register.png" />
       </SectionStyle>
@@ -59,10 +59,10 @@ export default function Register() {
         <ContentStyle>
           <Box sx={{ mb: 5 }}>
             <Typography variant="h4" gutterBottom>
-              Get started absolutely free.
+              Crie sua conta hoje mesmo.
             </Typography>
             <Typography sx={{ color: 'text.secondary' }}>
-              Free forever. No credit card needed.
+              Grátis para sempre. Sem cartão de crédito necessário.
             </Typography>
           </Box>
 
@@ -71,13 +71,13 @@ export default function Register() {
           <RegisterForm />
 
           <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
-            By registering, I agree to Minimal&nbsp;
+            Ao registrar, Eu aceito os&nbsp;
             <Link underline="always" color="textPrimary">
-              Terms of Service
+              Termos de Serviço
             </Link>
-            &nbsp;and&nbsp;
+            &nbsp;e as&nbsp;
             <Link underline="always" color="textPrimary">
-              Privacy Policy
+              Políticas de Privacidade
             </Link>
             .
           </Typography>
@@ -90,9 +90,9 @@ export default function Register() {
               display: { sm: 'none' }
             }}
           >
-            Already have an account?&nbsp;
+            Já possui uma conta?&nbsp;
             <Link underline="hover" to="/login" component={RouterLink}>
-              Login
+              Faça o Login
             </Link>
           </Typography>
         </ContentStyle>

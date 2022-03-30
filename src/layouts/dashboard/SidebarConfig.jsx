@@ -33,7 +33,7 @@ const sidebarConfig = [
   },
   {
     title: 'Cadastro',
-    path: '/register',
+    path: '/cadastro',
     icon: getIcon('eva:person-add-fill')
   }
 ];

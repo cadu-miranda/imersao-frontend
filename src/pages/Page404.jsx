@@ -21,7 +21,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function Page404() {
   return (
-    <RootStyle title="404 Page Not Found | Minimal-UI">
+    <RootStyle title="Oxil | Página não encontrada">
       <Container>
         <MotionContainer initial="initial" open>
           <Box sx={{ maxWidth: 480, margin: 'auto', textAlign: 'center' }}>
@@ -55,7 +55,7 @@ export default function Page404() {
                 '&:hover': { backgroundColor: 'orange', opacity: 0.9 }
               }}
             >
-              Ir para Dashboard
+              Voltar
             </Button>
           </Box>
         </MotionContainer>
