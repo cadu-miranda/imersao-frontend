@@ -19,11 +19,11 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 const SectionStyle = styled(Card)(({ theme }) => ({
   width: '100%',
-  maxWidth: 464,
+  maxWidth: 500,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  margin: theme.spacing(2, 0, 2, 2)
+  margin: theme.spacing(12, 4, 2, 2)
 }));
 
 const ContentStyle = styled('div')(({ theme }) => ({
@@ -40,28 +40,29 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 export default function Login() {
   return (
-    <RootStyle title="Login | Minimal-UI">
+    <RootStyle title="Oxil | Login">
       <AuthLayout>
-        Don’t have an account? &nbsp;
-        <Link underline="none" variant="subtitle2" component={RouterLink} to="/register">
-          Get started
+        Não possui uma conta? &nbsp;
+        <Link
+          underline="none"
+          variant="subtitle2"
+          component={RouterLink}
+          to="/register"
+          color="#7edc54"
+        >
+          Cadastre-se
         </Link>
       </AuthLayout>
-
-      <SectionStyle sx={{ display: { xs: 'none', md: 'flex' } }}>
-        <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-          Hi, Welcome Back
-        </Typography>
-        <img src="/static/illustrations/illustration_login.png" alt="login" />
-      </SectionStyle>
 
       <Container maxWidth="sm">
         <ContentStyle>
           <Stack sx={{ mb: 5 }}>
             <Typography variant="h4" gutterBottom>
-              Sign in to Minimal
+              Oxil Login
             </Typography>
-            <Typography sx={{ color: 'text.secondary' }}>Enter your details below.</Typography>
+            <Typography sx={{ color: 'text.secondary' }}>
+              Entre com seus detalhes abaixo.
+            </Typography>
           </Stack>
           <AuthSocial />
 
@@ -75,13 +76,25 @@ export default function Login() {
               display: { sm: 'none' }
             }}
           >
-            Don’t have an account?&nbsp;
-            <Link variant="subtitle2" component={RouterLink} to="register" underline="hover">
-              Get started
+            Não possui uma conta?&nbsp;
+            <Link
+              variant="subtitle2"
+              component={RouterLink}
+              to="register"
+              underline="hover"
+              color="#7edc54"
+            >
+              Cadastre-se
             </Link>
           </Typography>
         </ContentStyle>
       </Container>
+      <SectionStyle sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
+          Olá. Bem-vindo(a) de volta!
+        </Typography>
+        <img src="/static/illustrations/illustration_login.png" alt="login" />
+      </SectionStyle>
     </RootStyle>
   );
 }

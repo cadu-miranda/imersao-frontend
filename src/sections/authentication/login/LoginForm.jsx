@@ -23,8 +23,10 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().email('Email must be a valid email address').required('Email is required'),
-    password: Yup.string().required('Password is required')
+    email: Yup.string()
+      .email('E-mail deve ser um endereço válido')
+      .required('E-mail é obrigatório'),
+    password: Yup.string().required('Senha é obrigatória')
   });
 
   const formik = useFormik({
@@ -53,7 +55,7 @@ export default function LoginForm() {
             fullWidth
             autoComplete="username"
             type="email"
-            label="Email address"
+            label="Endereço de e-mail"
             {...getFieldProps('email')}
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
@@ -63,7 +65,7 @@ export default function LoginForm() {
             fullWidth
             autoComplete="current-password"
             type={showPassword ? 'text' : 'password'}
-            label="Password"
+            label="Senha"
             {...getFieldProps('password')}
             InputProps={{
               endAdornment: (
@@ -81,12 +83,29 @@ export default function LoginForm() {
 
         <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
           <FormControlLabel
-            control={<Checkbox {...getFieldProps('remember')} checked={values.remember} />}
-            label="Remember me"
+            sx={{ color: '#7e7e7e' }}
+            control={
+              <Checkbox
+                {...getFieldProps('remember')}
+                checked={values.remember}
+                sx={{
+                  '&.Mui-checked': {
+                    color: '#7edc54'
+                  }
+                }}
+              />
+            }
+            label="Lembre-me"
           />
 
-          <Link component={RouterLink} variant="subtitle2" to="#" underline="hover">
-            Forgot password?
+          <Link
+            component={RouterLink}
+            variant="subtitle2"
+            to="#"
+            underline="hover"
+            sx={{ color: '#7e7e7e' }}
+          >
+            Esqueceu a senha?
           </Link>
         </Stack>
 
@@ -96,8 +115,12 @@ export default function LoginForm() {
           type="submit"
           variant="contained"
           loading={isSubmitting}
+          sx={{
+            backgroundColor: '#7edc54',
+            '&:hover': { backgroundColor: '#7edc54', opacity: '0.9' }
+          }}
         >
-          Login
+          Entrar
         </LoadingButton>
       </Form>
     </FormikProvider>

@@ -12,12 +12,12 @@ const sidebarConfig = [
     icon: getIcon('eva:pie-chart-2-fill')
   },
   {
-    title: 'user',
+    title: 'Usuários',
     path: '/dashboard/user',
     icon: getIcon('eva:people-fill')
   },
   {
-    title: 'product',
+    title: 'Produtos',
     path: '/dashboard/products',
     icon: getIcon('eva:shopping-bag-fill')
   },
@@ -32,14 +32,9 @@ const sidebarConfig = [
     icon: getIcon('eva:lock-fill')
   },
   {
-    title: 'register',
+    title: 'Cadastro',
     path: '/register',
     icon: getIcon('eva:person-add-fill')
-  },
-  {
-    title: 'Not found',
-    path: '/404',
-    icon: getIcon('eva:alert-triangle-fill')
   }
 ];
 

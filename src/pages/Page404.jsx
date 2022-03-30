@@ -27,12 +27,12 @@ export default function Page404() {
           <Box sx={{ maxWidth: 480, margin: 'auto', textAlign: 'center' }}>
             <motion.div variants={varBounceIn}>
               <Typography variant="h3" paragraph>
-                Sorry, page not found!
+                Desculpe. Página não encontrada!
               </Typography>
             </motion.div>
             <Typography sx={{ color: 'text.secondary' }}>
-              Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL?
-              Be sure to check your spelling.
+              Desculpe, nós não conseguimos achar a pagina que você está procurando. Talvez você
+              tenha errado o endereço? Tenha certeza que este é o endereço correto.
             </Typography>
 
             <motion.div variants={varBounceIn}>
@@ -43,8 +43,19 @@ export default function Page404() {
               />
             </motion.div>
 
-            <Button to="/" size="large" variant="contained" component={RouterLink}>
-              Go to Home
+            <Button
+              to="/"
+              size="large"
+              variant="contained"
+              component={RouterLink}
+              sx={{
+                backgroundColor: 'orange',
+                boxShadow: 'none',
+                borderRadius: 40,
+                '&:hover': { backgroundColor: 'orange', opacity: 0.9 }
+              }}
+            >
+              Ir para Dashboard
             </Button>
           </Box>
         </MotionContainer>

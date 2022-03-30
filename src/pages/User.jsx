@@ -131,19 +131,24 @@ export default function User() {
   const isUserNotFound = filteredUsers.length === 0;
 
   return (
-    <Page title="User | Minimal-UI">
+    <Page title="Oxil | Usuários">
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            User
+            Listagem de Usuários
           </Typography>
           <Button
             variant="contained"
             component={RouterLink}
             to="#"
-            startIcon={<Iconify icon="eva:plus-fill" />}
+            sx={{
+              backgroundColor: 'orange',
+              boxShadow: 'none',
+              borderRadius: 40,
+              '&:hover': { backgroundColor: 'orange', opacity: 0.9 }
+            }}
           >
-            New User
+            Cadastrar
           </Button>
         </Stack>
 
