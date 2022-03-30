@@ -58,7 +58,7 @@ export default function Login() {
         <ContentStyle>
           <Stack sx={{ mb: 5 }}>
             <Typography variant="h4" gutterBottom>
-              Oxil Login
+              Olá!
             </Typography>
             <Typography sx={{ color: 'text.secondary' }}>
               Entre com seus detalhes abaixo.
