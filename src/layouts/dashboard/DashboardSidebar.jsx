@@ -116,7 +116,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             sx: {
               width: DRAWER_WIDTH,
               bgcolor: 'background.default',
-              borderRightStyle: 'dashed'
+              borderRightStyle: 'dotted'
             }
           }}
         >
