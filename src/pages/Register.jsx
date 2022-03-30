@@ -61,9 +61,6 @@ export default function Register() {
             <Typography variant="h4" gutterBottom>
               Crie sua conta hoje mesmo.
             </Typography>
-            <Typography sx={{ color: 'text.secondary' }}>
-              Grátis para sempre. Sem cartão de crédito necessário.
-            </Typography>
           </Box>
 
           <AuthSocial />
@@ -71,12 +68,12 @@ export default function Register() {
           <RegisterForm />
 
           <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
-            Ao registrar, Eu aceito os&nbsp;
-            <Link underline="always" color="textPrimary">
+            Ao cadastrar, Eu aceito os&nbsp;
+            <Link underline="always" color="textPrimary" style={{ cursor: 'pointer' }}>
               Termos de Serviço
             </Link>
             &nbsp;e as&nbsp;
-            <Link underline="always" color="textPrimary">
+            <Link underline="always" color="textPrimary" style={{ cursor: 'pointer' }}>
               Políticas de Privacidade
             </Link>
             .

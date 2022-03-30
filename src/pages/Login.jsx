@@ -90,9 +90,6 @@ export default function Login() {
         </ContentStyle>
       </Container>
       <SectionStyle sx={{ display: { xs: 'none', md: 'flex' } }}>
-        <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-          Olá. Bem-vindo(a) de volta!
-        </Typography>
         <img src="/static/illustrations/illustration_login.png" alt="login" />
       </SectionStyle>
     </RootStyle>
