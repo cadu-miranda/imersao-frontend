@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
+import Footer from '../components/Footer';
 import {
   ProductSort,
   ProductList,
@@ -75,6 +76,7 @@ export default function EcommerceShop() {
         <ProductList products={PRODUCTS} />
         <ProductCartWidget />
       </Container>
+      <Footer />
     </Page>
   );
 }
