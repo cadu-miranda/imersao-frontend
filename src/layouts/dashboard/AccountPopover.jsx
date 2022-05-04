@@ -15,7 +15,7 @@ const MENU_OPTIONS = [
   {
     label: 'Perfil',
     icon: 'eva:person-fill',
-    linkTo: '/perfil'
+    linkTo: '#'
   },
   {
     label: 'Configurações',
@@ -103,7 +103,7 @@ export default function AccountPopover() {
         ))}
 
         <Box sx={{ p: 2, pt: 1.5 }}>
-          <Button fullWidth color="inherit" variant="outlined" onClick={() => navigate('/login')}>
+          <Button fullWidth color="inherit" variant="outlined" onClick={() => navigate('#')}>
             Sair
           </Button>
         </Box>

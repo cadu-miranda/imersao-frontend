@@ -28,7 +28,7 @@ const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props
       position: 'absolute',
       borderTopLeftRadius: 4,
       borderBottomLeftRadius: 4,
-      backgroundColor: 'orange'
+      backgroundColor: 'red'
     }
   })
 );
@@ -63,7 +63,7 @@ function NavItem({ item, active }) {
     // fontWeight: 'fontWeightMedium',
     // bgcolor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
     // '&:before': { display: 'block' }
-    color: 'orange',
+    color: 'red',
     fontWeight: 'fontWeightMedium',
     bgcolor: alpha(theme.palette.secondary.main, theme.palette.action.selectedOpacity),
     '&:before': { display: 'block' }

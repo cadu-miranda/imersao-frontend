@@ -64,7 +64,7 @@ export default function Login() {
               Entre com seus detalhes abaixo.
             </Typography>
           </Stack>
-          <AuthSocial />
+          {/* <AuthSocial /> */}
 
           <LoginForm />
 

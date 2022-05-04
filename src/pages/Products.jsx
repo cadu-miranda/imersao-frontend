@@ -47,7 +47,7 @@ export default function EcommerceShop() {
   };
 
   return (
-    <Page title="Oxil | Produtos">
+    <Page title="Imersão | Produtos">
       <Container>
         <Typography variant="h4" sx={{ mb: 5 }}>
           Listagem de Produtos

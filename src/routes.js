@@ -16,24 +16,21 @@ import NotFound from './pages/Page404';
 export default function Router() {
   return useRoutes([
     {
-      path: '/dashboard',
-      element: <DashboardLayout />,
-      children: [
-        { path: 'app', element: <DashboardApp /> },
-        { path: 'user', element: <User /> },
-        { path: 'products', element: <Products /> },
-        { path: 'blog', element: <Blog /> }
-      ]
-    },
-    {
-      path: '/',
+      path: '/auth',
       element: <LogoOnlyLayout />,
       children: [
-        { path: '/', element: <Navigate to="/dashboard/app" /> },
         { path: 'login', element: <Login /> },
         { path: 'cadastro', element: <Register /> },
         { path: '404', element: <NotFound /> },
         { path: '*', element: <Navigate to="/404" /> }
+      ]
+    },
+    {
+      path: '/',
+      element: <DashboardLayout />,
+      children: [
+        { path: 'produtos', element: <Products /> },
+        { path: '/', element: <Navigate to="/produtos" /> }
       ]
     },
     { path: '*', element: <Navigate to="/404" replace /> }
