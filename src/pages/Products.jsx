@@ -1,10 +1,10 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
 // material
-import { Container, Stack, Typography } from '@mui/material';
+import { Container, Stack, TextField, Typography } from '@mui/material';
+import { withStyles } from '@mui/material/styles';
 // components
 import Page from '../components/Page';
-import Footer from '../components/Footer';
 import {
   ProductSort,
   ProductList,
@@ -58,9 +58,23 @@ export default function EcommerceShop() {
           direction="row"
           flexWrap="wrap-reverse"
           alignItems="center"
-          justifyContent="flex-end"
+          justifyContent="space-between"
           sx={{ mb: 5 }}
         >
+          <TextField
+            id="outlined-basic"
+            label="Pesquisar..."
+            variant="outlined"
+            sx={{
+              width: '400px',
+              '.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#000'
+              },
+              '.MuiInputLabel-root': {
+                color: '#000 !important'
+              }
+            }}
+          />
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
             <ProductFilterSidebar
               formik={formik}
@@ -76,7 +90,6 @@ export default function EcommerceShop() {
         <ProductList products={PRODUCTS} />
         <ProductCartWidget />
       </Container>
-      <Footer />
     </Page>
   );
 }

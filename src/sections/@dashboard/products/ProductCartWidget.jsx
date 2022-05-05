@@ -2,6 +2,7 @@
 import { styled } from '@mui/material/styles';
 import { Badge } from '@mui/material';
 // component
+import { useCart } from '../../../hooks/useCart';
 import Iconify from '../../../components/Iconify';
 
 // ----------------------------------------------------------------------
@@ -30,9 +31,13 @@ const RootStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function CartWidget() {
+  const { cart } = useCart();
+
+  const total = Object.values(cart).reduce((t, index) => t + index, 0);
+
   return (
     <RootStyle>
-      <Badge showZero badgeContent={0} color="error" max={99}>
+      <Badge showZero badgeContent={total} color="error" max={99}>
         <Iconify icon="eva:shopping-cart-fill" width={24} height={24} />
       </Badge>
     </RootStyle>

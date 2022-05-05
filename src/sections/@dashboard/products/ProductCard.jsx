@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link as RouterLink } from 'react-router-dom';
-import { Box, Card, Link, Typography, Stack, Button } from '@mui/material';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Box, Card, Typography, Stack, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { useCart } from '../../../hooks/useCart';
 import { fCurrency } from '../../../utils/formatNumber';
 
 const ProductImgStyle = styled('img')({
@@ -13,13 +15,13 @@ const ProductImgStyle = styled('img')({
 });
 
 const ShopButton = styled(Button)({
-  backgroundColor: '#f00',
+  backgroundColor: 'orange',
   color: '#fff',
 
   '&:hover': {
     backgroundColor: '#fff',
-    color: '#f00',
-    border: '1px solid #f00'
+    color: 'orange',
+    border: '1px solid orange'
   }
 });
 
@@ -28,10 +30,24 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
+  const navigate = useNavigate();
+
+  const { addProduct } = useCart();
+
+  const [selectedProduct, setSelectedProduct] = useState({});
+
   const { name, cover, price } = product;
+
+  const handleSelectProductCard = (productObj) => {
+    console.log('chegou');
+    setSelectedProduct(productObj);
+    localStorage.setItem('product', JSON.stringify(productObj));
+    navigate('/produto');
+  };
 
   return (
     <Card
+      onClick={() => handleSelectProductCard(product)}
       sx={{
         '&:hover': {
           position: 'relative',
@@ -50,7 +66,13 @@ export default function ShopProductCard({ product }) {
         </Typography>
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Typography variant="subtitle1">{fCurrency(price)}</Typography>
-          <ShopButton>Comprar</ShopButton>
+          <ShopButton
+            onClick={() => {
+              addProduct(product?.id);
+            }}
+          >
+            Comprar
+          </ShopButton>
         </Stack>
       </Stack>
     </Card>

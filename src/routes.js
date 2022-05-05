@@ -10,6 +10,7 @@ import Products from './pages/Products';
 import Blog from './pages/Blog';
 import User from './pages/User';
 import NotFound from './pages/Page404';
+import SpecificProduct from './pages/SpecificProduct';
 
 // ----------------------------------------------------------------------
 
@@ -29,8 +30,9 @@ export default function Router() {
       path: '/',
       element: <DashboardLayout />,
       children: [
+        { path: '/', element: <Navigate to="/produtos" /> },
         { path: 'produtos', element: <Products /> },
-        { path: '/', element: <Navigate to="/produtos" /> }
+        { path: 'produto', element: <SpecificProduct /> }
       ]
     },
     { path: '*', element: <Navigate to="/404" replace /> }
