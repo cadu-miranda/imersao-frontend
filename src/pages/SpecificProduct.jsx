@@ -1,11 +1,6 @@
-import { useFormik } from 'formik';
-import { useState } from 'react';
-// material
-import { Container, Stack, TextField, Typography } from '@mui/material';
-// components
+import { Breadcrumbs, Container, Typography, Box, Link } from '@mui/material';
 import Page from '../components/Page';
 import { ProductCartWidget } from '../sections/@dashboard/products';
-//
 import ProductInfo from '../sections/@dashboard/products/ProductInfo';
 
 // ----------------------------------------------------------------------
@@ -16,9 +11,17 @@ export default function SpecificProduct() {
   return (
     <Page title="Imersão | Produtos">
       <Container>
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          Home / Produtos
-        </Typography>
+        <Box mb={90 / 8}>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link underline="hover" color="inherit" href="/produtos">
+              Produtos
+            </Link>
+            <Link underline="hover" color="inherit" href="#">
+              Categoria
+            </Link>
+            <Typography color="text.primary">{product?.name}</Typography>
+          </Breadcrumbs>
+        </Box>
 
         <ProductInfo product={product} />
         <ProductCartWidget />
