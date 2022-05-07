@@ -36,13 +36,16 @@
   position: relative;
   border-radius: 3px;
   padding: 20px;
+  max-height: 330px;
+  overflow-y: auto;
 }
 .shopping-cart .shopping-cart-header {
   border-bottom: 1px solid #e8e8e8;
   padding-bottom: 15px;
+  background-color: #fff;
 }
-.shopping-cart .shopping-cart-header .shopping-cart-total {
-  float: right;
+.shopping-cart-total {
+  margin-top: 30px;
 }
 .shopping-cart .shopping-cart-items {
   padding-top: 20px;
@@ -54,31 +57,25 @@
   float: left;
   margin-right: 12px;
 }
-.shopping-cart .shopping-cart-items .item-name {
-  display: block;
+.item-name {
   padding-top: 10px;
   font-size: 16px;
+  font-weight: bolder;
+  color: #000;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.shopping-cart .shopping-cart-items .item-price {
-  color: #6394f8;
+.item-price {
+  color: #000;
+  font-weight: bolder;
   margin-right: 8px;
 }
 .shopping-cart .shopping-cart-items .item-quantity {
   color: #abb0be;
 }
-.shopping-cart:after {
-  bottom: 100%;
-  left: 92%;
-  border: solid transparent;
-  content: ' ';
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-bottom-color: white;
-  border-width: 8px;
-  margin-left: -8px;
-}
+
 .cart-icon {
   color: #515783;
   font-size: 24px;
@@ -98,4 +95,88 @@
 }
 .button:hover {
   background: rgba(255, 0, 0, 0.911);
+}
+
+.product-cart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.product-image {
+  min-width: 120px;
+  max-width: 120px;
+  min-height: 130px;
+  max-height: 130px;
+}
+
+.noselect {
+  width: 110px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  background: #e62222;
+}
+
+button,
+button span {
+  transition: 200ms;
+}
+
+button .text {
+  transform: translateX(10px);
+  color: white;
+  font-weight: bold;
+}
+
+button .icon {
+  position: absolute;
+  transform: translateX(70px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button svg {
+  width: 15px;
+  fill: #eee;
+}
+
+button:hover {
+  background: #ff3636;
+}
+
+button:hover .text {
+  color: transparent;
+}
+
+button:hover .icon {
+  width: 112px;
+  border-left: none;
+  transform: translateX(0);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active .icon svg {
+  transform: scale(0.8);
 }

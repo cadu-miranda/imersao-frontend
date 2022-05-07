@@ -39,7 +39,6 @@ export default function ShopProductCard({ product }) {
   const { name, cover, price } = product;
 
   const handleSelectProductCard = (productObj) => {
-    console.log('chegou');
     setSelectedProduct(productObj);
     localStorage.setItem('product', JSON.stringify(productObj));
     navigate('/produto');
