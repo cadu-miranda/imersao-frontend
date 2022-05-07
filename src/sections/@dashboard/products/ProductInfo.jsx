@@ -52,33 +52,7 @@ export default function ProductInfo({ product }) {
   const handleGetFreteByState = () => {
     let price;
 
-    if (cepData?.uf === 'AC') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'AL') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'AM') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'AP') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'BA') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'CE') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'DF') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'ES') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'GO') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'MA') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'MG') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'MS') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'MT') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'PA') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'PB') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'PE') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'PI') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'PR') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'RJ') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'RN') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'RO') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'RR') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'RS') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'SC') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'SE') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'SP') price = betweenRandomNumber(10, 100);
-    else if (cepData?.uf === 'TO') price = betweenRandomNumber(10, 100);
+    price = betweenRandomNumber(10, 100);
 
     return price;
   };
@@ -217,6 +191,10 @@ export default function ProductInfo({ product }) {
           <TextField
             onChange={(e) => setCep(e.target.value)}
             value={formatCEP(cep)}
+            inputProps={{
+              minLength: 10,
+              maxLength: 10
+            }}
             id="outlined-basic"
             label="CALCULE SEU FRETE"
             variant="outlined"
@@ -249,8 +227,6 @@ export default function ProductInfo({ product }) {
           />
           <CustomButton
             disabled={cep?.length < 10}
-            minLength={10}
-            maxLength={10}
             onClick={handleGetCepData}
             bgColor="#000"
             textColor="#fff"
