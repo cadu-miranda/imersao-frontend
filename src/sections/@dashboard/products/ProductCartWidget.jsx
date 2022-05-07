@@ -33,8 +33,14 @@ export default function CartWidget() {
   const total = Object.values(cart).reduce((t, index) => t + index, 0);
 
   return (
-    <RootStyle onClick={() => setIsOpenCheckout(!isOpenCheckout)}>
-      <Badge showZero badgeContent={total} color="error" max={99}>
+    <RootStyle>
+      <Badge
+        onClick={() => setIsOpenCheckout(!isOpenCheckout)}
+        showZero
+        badgeContent={total}
+        color="error"
+        max={99}
+      >
         <Iconify icon="eva:shopping-cart-fill" width={24} height={24} />
       </Badge>
       {isOpenCheckout ? <ShoppingCart /> : false}

@@ -4,11 +4,19 @@ import products from 'src/_mocks_/products';
 import './styles.css';
 
 export default function ShoppingCart() {
-  const { cart } = useCart();
+  const { cart, removeProduct } = useCart();
 
   const cartProductsIds = Object.keys(cart);
 
   const newProducts = products?.filter((item) => cartProductsIds.includes(item?.id));
+  const productPrices = newProducts.map((item) => item?.price);
+
+  let initialValue = 0;
+  let totalPrice = productPrices.reduce(
+    (previousValue, currentValue) =>
+      previousValue + currentValue * newProducts?.map((item) => cart[item?.id]),
+    initialValue
+  );
 
   return (
     <div className="container">
@@ -22,11 +30,13 @@ export default function ShoppingCart() {
                 <div className="product-info">
                   <span className="item-name">{item?.name}</span>
                   <span className="item-quantity">
-                    Quantity: <b>01</b>
+                    Quantidade: <b>{cart[item?.id]}</b>
                   </span>
-                  <span className="item-price">R$ {item?.price}</span>
+                  <span className="item-price">
+                    R$ {Number(item?.price * cart[item?.id]).toFixed(2)}
+                  </span>
 
-                  <button className="noselect">
+                  <button onClick={() => removeProduct(item?.id)} className="noselect">
                     <span className="text">Remover</span>
                     <span className="icon">
                       <svg
@@ -46,11 +56,17 @@ export default function ShoppingCart() {
         </ul>
 
         <div className="shopping-cart-total">
-          <span className="lighter-text">Total: </span>
-          <span className="main-color-text">R$ 2.229,97</span>
-          <a href="#" className="button">
-            Finalizar compra
-          </a>
+          {cartProductsIds.length > 0 ? (
+            <div>
+              <span className="lighter-text">Total: </span>
+              <span className="main-color-text">R$ {Number(totalPrice).toFixed(2)}</span>
+              <a href="#" className="button">
+                Finalizar compra
+              </a>
+            </div>
+          ) : (
+            <span className="lighter-text">Seu carrinho está vazio!</span>
+          )}
         </div>
       </div>
     </div>

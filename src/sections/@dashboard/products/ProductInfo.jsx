@@ -72,7 +72,7 @@ export default function ProductInfo({ product }) {
             {product?.name}
           </Typography>
           <Typography sx={{ fontSize: 32, fontWeight: 'bolder', color: '#f00' }}>
-            R${product?.price}
+            R$ {product?.price}
           </Typography>
         </Box>
         <Box
