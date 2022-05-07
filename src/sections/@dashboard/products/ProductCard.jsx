@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { Box, Card, Typography, Stack, Button } from '@mui/material';
@@ -34,12 +34,9 @@ export default function ShopProductCard({ product }) {
 
   const { addProduct } = useCart();
 
-  const [selectedProduct, setSelectedProduct] = useState({});
-
   const { name, cover, price } = product;
 
   const handleSelectProductCard = (productObj) => {
-    setSelectedProduct(productObj);
     localStorage.setItem('product', JSON.stringify(productObj));
     navigate('/produto');
   };

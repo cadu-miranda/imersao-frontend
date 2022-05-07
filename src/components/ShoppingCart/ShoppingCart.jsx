@@ -1,10 +1,19 @@
 import React from 'react';
 import { useCart } from '../../hooks/useCart';
 import products from 'src/_mocks_/products';
+import { useNavigate } from 'react-router-dom';
 import './styles.css';
 
-export default function ShoppingCart() {
+export default function ShoppingCart({ setIsOpenCheckout }) {
+  const navigate = useNavigate();
+
   const { cart, removeProduct } = useCart();
+
+  const handleSelectProductCard = (productObj) => {
+    localStorage.setItem('product', JSON.stringify(productObj));
+    navigate('/produto');
+    setIsOpenCheckout(false);
+  };
 
   const cartProductsIds = Object.keys(cart);
 
@@ -26,7 +35,7 @@ export default function ShoppingCart() {
         <ul className="g-cart-items">
           {newProducts?.map((item) => {
             return (
-              <div className="product-cart">
+              <div onClick={() => handleSelectProductCard(item)} className="product-cart">
                 <img src={item?.cover} alt="item1" className="product-image" />
                 <div className="product-info">
                   <span className="item-name">{item?.name}</span>

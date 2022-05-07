@@ -43,7 +43,7 @@ export default function CartWidget() {
       >
         <Iconify icon="eva:shopping-cart-fill" width={24} height={24} />
       </Badge>
-      {isOpenCheckout ? <ShoppingCart /> : false}
+      {isOpenCheckout ? <ShoppingCart setIsOpenCheckout={setIsOpenCheckout} /> : false}
     </RootStyle>
   );
 }
