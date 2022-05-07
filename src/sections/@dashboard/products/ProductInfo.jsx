@@ -11,6 +11,7 @@ import {
   TextField,
   styled
 } from '@mui/material';
+import CartControl from '../../../components/CartControl';
 import { formatCEP } from '../../../utils/formatCep';
 
 ProductInfo.propTypes = {
@@ -164,6 +165,16 @@ export default function ProductInfo({ product }) {
             variant="outlined"
             sx={{
               width: '400px',
+
+              '& label': {
+                width: '100%',
+                textAlign: 'center'
+              },
+
+              '&.Mui-focused': {
+                transformOrigin: 'center'
+              },
+
               '.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                 borderColor: '#000'
               },
@@ -174,6 +185,22 @@ export default function ProductInfo({ product }) {
           />
           <CustomButton bgColor="#000" textColor="#fff">
             CALCULAR
+          </CustomButton>
+        </Box>
+        <Box
+          mt={51 / 8}
+          sx={(theme) => ({
+            display: 'flex',
+            gap: 13.65 / 8
+          })}
+        >
+          <CartControl product={product} />
+          <CustomButton
+            bgColor="orange"
+            textColor="#fff"
+            sx={{ width: '253px', height: '70px', textTransform: 'full-size-kana' }}
+          >
+            Adicionar ao carrinho
           </CustomButton>
         </Box>
       </Box>

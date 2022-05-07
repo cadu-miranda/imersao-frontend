@@ -54,6 +54,26 @@ export function CartProvider({ children }) {
     }
   };
 
+  const decrementProduct = async (productId) => {
+    try {
+      // TODO
+      const cartProductsIds = Object.keys(cart);
+      const isProductAlreadyInCart = cartProductsIds.includes(String(productId));
+
+      let newCart = {};
+
+      if (isProductAlreadyInCart) {
+        newCart = { ...cart, [productId]: cart[productId] - 1 };
+
+        setCart(newCart);
+        localStorage.setItem('@commerce:Cart', JSON.stringify(newCart));
+      }
+    } catch (error) {
+      // TODO
+      console.log(error);
+    }
+  };
+
   const updateProductAmount = async ({ productId, amount }) => {
     try {
       // TODO
@@ -67,7 +87,9 @@ export function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addProduct, removeProduct, updateProductAmount }}>
+    <CartContext.Provider
+      value={{ cart, addProduct, decrementProduct, removeProduct, updateProductAmount }}
+    >
       {children}
     </CartContext.Provider>
   );
