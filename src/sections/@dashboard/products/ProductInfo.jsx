@@ -24,10 +24,63 @@ export default function ProductInfo({ product }) {
 
   const [tamanho, setTamanho] = useState('');
   const [cep, setCep] = useState('');
+  const [cepData, setCepData] = useState({});
   const [counter, setCounter] = useState(0);
 
   const handleChange = (event) => {
     setTamanho(event.target.value);
+  };
+
+  const handleGetCepData = () => {
+    try {
+      const formattedCep = cep.replace('.', '').replace('-', '');
+
+      if (Number(formattedCep.length) === 8) {
+        fetch(`https://viacep.com.br/ws/${formattedCep}/json/`)
+          .then((res) => res.json())
+          .then((result) => setCepData(result));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  function betweenRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  const handleGetFreteByState = () => {
+    let price;
+
+    if (cepData?.uf === 'AC') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'AL') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'AM') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'AP') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'BA') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'CE') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'DF') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'ES') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'GO') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'MA') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'MG') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'MS') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'MT') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'PA') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'PB') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'PE') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'PI') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'PR') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'RJ') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'RN') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'RO') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'RR') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'RS') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'SC') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'SE') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'SP') price = betweenRandomNumber(10, 100);
+    else if (cepData?.uf === 'TO') price = betweenRandomNumber(10, 100);
+
+    return price;
   };
 
   const CustomButton = styled(Button)(({ theme, bgColor, textColor }) => ({
@@ -194,10 +247,24 @@ export default function ProductInfo({ product }) {
               }
             }}
           />
-          <CustomButton bgColor="#000" textColor="#fff">
+          <CustomButton
+            disabled={cep?.length < 10}
+            minLength={10}
+            maxLength={10}
+            onClick={handleGetCepData}
+            bgColor="#000"
+            textColor="#fff"
+          >
             CALCULAR
           </CustomButton>
         </Box>
+        {cepData?.uf ? (
+          <Typography mt={2}>
+            Entrega Ninja = R$ {Number(handleGetFreteByState()).toFixed(2)}
+          </Typography>
+        ) : (
+          false
+        )}
         <Box
           mt={51 / 8}
           sx={(theme) => ({
@@ -207,7 +274,7 @@ export default function ProductInfo({ product }) {
         >
           <CartControl product={product} setCounter={setCounter} counter={counter} />
           <CustomButton
-            onClick={() => addProduct(product?.id, counter)}
+            onClick={() => (counter === 0 ? false : addProduct(product?.id, counter))}
             bgColor="orange"
             textColor="#fff"
             sx={{ width: '253px', height: '70px', textTransform: 'full-size-kana' }}
