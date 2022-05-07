@@ -13,14 +13,18 @@ import {
 } from '@mui/material';
 import CartControl from '../../../components/CartControl';
 import { formatCEP } from '../../../utils/formatCep';
+import { useCart } from '../../../hooks/useCart';
 
 ProductInfo.propTypes = {
   product: PropTypes.object
 };
 
 export default function ProductInfo({ product }) {
+  const { addProduct } = useCart();
+
   const [tamanho, setTamanho] = useState('');
   const [cep, setCep] = useState('');
+  const [counter, setCounter] = useState(0);
 
   const handleChange = (event) => {
     setTamanho(event.target.value);
@@ -194,8 +198,9 @@ export default function ProductInfo({ product }) {
             gap: 13.65 / 8
           })}
         >
-          <CartControl product={product} />
+          <CartControl product={product} setCounter={setCounter} counter={counter} />
           <CustomButton
+            onClick={() => addProduct(product?.id, counter)}
             bgColor="orange"
             textColor="#fff"
             sx={{ width: '253px', height: '70px', textTransform: 'full-size-kana' }}

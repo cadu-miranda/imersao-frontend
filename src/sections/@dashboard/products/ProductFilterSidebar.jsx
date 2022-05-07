@@ -98,7 +98,12 @@ export default function ShopFilterSidebar({
 
                   <RadioGroup {...getFieldProps('gender')}>
                     {FILTER_GENDER_OPTIONS.map((item) => (
-                      <FormControlLabel key={item} value={item} control={<Radio />} label={item} />
+                      <FormControlLabel
+                        key={item}
+                        value={item}
+                        control={<Radio color="warning" />}
+                        label={item}
+                      />
                     ))}
                   </RadioGroup>
                 </div>
@@ -112,7 +117,7 @@ export default function ShopFilterSidebar({
                       <FormControlLabel
                         key={item.value}
                         value={item.value}
-                        control={<Radio />}
+                        control={<Radio color="warning" />}
                         label={item.label}
                       />
                     ))}

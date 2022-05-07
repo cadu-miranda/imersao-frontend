@@ -17,7 +17,7 @@ export function CartProvider({ children }) {
     console.log(cart);
   }, [cart]);
 
-  const addProduct = async (productId) => {
+  const addProduct = async (productId, counter) => {
     try {
       // TODO
       const cartProductsIds = Object.keys(cart);
@@ -26,11 +26,11 @@ export function CartProvider({ children }) {
       let newCart = {};
 
       if (isProductAlreadyInCart) {
-        newCart = { ...cart, [productId]: cart[productId] + 1 };
+        newCart = { ...cart, [productId]: cart[productId] + counter };
         setCart(newCart);
         localStorage.setItem('@commerce:Cart', JSON.stringify(newCart));
       } else {
-        newCart = { ...cart, [productId]: 1 };
+        newCart = { ...cart, [productId]: counter };
         setCart(newCart);
         localStorage.setItem('@commerce:Cart', JSON.stringify(newCart));
       }

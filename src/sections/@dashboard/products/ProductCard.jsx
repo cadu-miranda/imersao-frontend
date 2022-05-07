@@ -32,8 +32,6 @@ ShopProductCard.propTypes = {
 export default function ShopProductCard({ product }) {
   const navigate = useNavigate();
 
-  const { addProduct } = useCart();
-
   const { name, cover, price } = product;
 
   const handleSelectProductCard = (productObj) => {
@@ -62,13 +60,7 @@ export default function ShopProductCard({ product }) {
         </Typography>
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Typography variant="subtitle1">{fCurrency(price)}</Typography>
-          <ShopButton
-            onClick={() => {
-              addProduct(product?.id);
-            }}
-          >
-            Comprar
-          </ShopButton>
+          <ShopButton>Visualizar</ShopButton>
         </Stack>
       </Stack>
     </Card>

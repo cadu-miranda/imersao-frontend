@@ -66,8 +66,11 @@ export default function ShoppingCart({ setIsOpenCheckout }) {
         <div className="shopping-cart-total">
           {cartProductsIds.length > 0 ? (
             <div>
-              <span className="lighter-text">Total: </span>
-              <span className="main-color-text">R$ {Number(totalPrice).toFixed(2)}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span className="lighter-text">SUBTOTAL </span>
+                <span className="main-color-text">R$ {Number(totalPrice).toFixed(2)}</span>
+              </div>
+
               <a href="#" className="button">
                 Finalizar compra
               </a>

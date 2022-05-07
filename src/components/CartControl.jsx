@@ -7,12 +7,8 @@ CartControl.propTypes = {
   product: PropTypes.object
 };
 
-export default function CartControl({ product }) {
-  const { cart, addProduct, removeProduct, decrementProduct } = useCart();
-
-  console.log('cart', cart[product?.id]);
-
-  const total = Object.values(cart).reduce((t, index) => t + index, 0);
+export default function CartControl({ product, setCounter, counter }) {
+  const { cart } = useCart();
 
   return (
     <Box
@@ -27,9 +23,8 @@ export default function CartControl({ product }) {
       }}
     >
       <IconButton
-        onClick={() =>
-          cart[product?.id] - 1 === 0 ? removeProduct(product?.id) : decrementProduct(product?.id)
-        }
+        disabled={counter === 0}
+        onClick={() => setCounter(counter - 1)}
         bgColor="orange"
         textColor="#fff"
         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
@@ -37,10 +32,10 @@ export default function CartControl({ product }) {
         -
       </IconButton>
       <Typography color="#f00" fontWeight="bolder" fontSize={20}>
-        {cart[product?.id] === undefined ? 0 : cart[product?.id]}
+        {counter}
       </Typography>
       <IconButton
-        onClick={() => addProduct(product?.id)}
+        onClick={() => setCounter(counter + 1)}
         bgColor="orange"
         textColor="#fff"
         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
