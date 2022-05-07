@@ -9,12 +9,13 @@ export default function ShoppingCart() {
   const cartProductsIds = Object.keys(cart);
 
   const newProducts = products?.filter((item) => cartProductsIds.includes(item?.id));
-  const productPrices = newProducts.map((item) => item?.price);
 
   let initialValue = 0;
-  let totalPrice = productPrices.reduce(
-    (previousValue, currentValue) =>
-      previousValue + currentValue * newProducts?.map((item) => cart[item?.id]),
+
+  const auxAcc = newProducts?.map((item) => item.price * cart[item?.id]);
+
+  let totalPrice = auxAcc.reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
 
@@ -32,9 +33,7 @@ export default function ShoppingCart() {
                   <span className="item-quantity">
                     Quantidade: <b>{cart[item?.id]}</b>
                   </span>
-                  <span className="item-price">
-                    R$ {Number(item?.price * cart[item?.id]).toFixed(2)}
-                  </span>
+                  <span className="item-price">R$ {item?.price}</span>
 
                   <button onClick={() => removeProduct(item?.id)} className="noselect">
                     <span className="text">Remover</span>
