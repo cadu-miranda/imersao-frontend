@@ -172,11 +172,18 @@ export default function ProductInfo({ product }) {
 
               '& label': {
                 width: '100%',
+                marginLeft: 0,
+                '&.Mui-focused': {
+                  width: '50%',
+                  marginLeft: -1.5,
+                  justifyContent: 'center',
+                  textAlign: 'center'
+                },
                 textAlign: 'center'
               },
 
-              '&.Mui-focused': {
-                transformOrigin: 'center'
+              '.MuiOutlinedInput-input': {
+                textAlign: 'center'
               },
 
               '.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
